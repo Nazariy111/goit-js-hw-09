@@ -18,11 +18,19 @@ form.addEventListener('input', (e) => {
 
 form.addEventListener('submit', (e) => { 
     e.preventDefault();
-    const info = getFromStorage(storageKey) || {};
-    console.log(info);
     
-    localStorage.removeItem(storageKey);
-    form.reset();
+    const userEmail = form.elements.email.value;
+    const userMessage = form.elements.message.value;
+
+    if (userEmail.trim() === '' || userMessage.trim() === '') {
+        alert('All fields must be filled in!');
+    } else {
+        const info = getFromStorage(storageKey) || {};
+        console.log(info);
+    
+        localStorage.removeItem(storageKey);
+        form.reset();
+    };
 });
 
 
