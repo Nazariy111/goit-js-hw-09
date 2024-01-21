@@ -17,7 +17,7 @@ const galleryMarkup = images
     <img
         class="gallery-image"
         src="${image.preview}"
-        title="${image.description}"
+        alt="${image.description}"
     />
     </a>
     </li>`)
@@ -25,5 +25,7 @@ const galleryMarkup = images
 
 gallery.innerHTML = galleryMarkup;
 
-let gallerySimple = new SimpleLightbox('.gallery a');
+let lightbox = new SimpleLightbox('.gallery a', { captionsData: 'alt', captionDelay: 250 });
+
+
 
